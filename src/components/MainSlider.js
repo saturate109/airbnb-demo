@@ -12,19 +12,19 @@ const useStyles = makeStyles((theme) => ({
 
 const cards = [
   {
-    image: '/static/media/images/cafe-3537801_1280.jpg',
+    image: 'static/media/images/cafe-3537801_1280.jpg',
   },
   {
-    image: '/static/media/images/jason-briscoe-AQl-J19ocWE-unsplash.jpg',
+    image: 'static/media/images/jason-briscoe-AQl-J19ocWE-unsplash.jpg',
   },
   {
-    image: '/static/media/images/bedroom-527645_1280.jpg',
+    image: 'static/media/images/bedroom-527645_1280.jpg',
   },
   {
-    image: '/static/media/images/kara-eads-L7EwHkq1B2s-unsplash.jpg',
+    image: 'static/media/images/kara-eads-L7EwHkq1B2s-unsplash.jpg',
   },
   {
-    image: '/static/media/images/greg-rivers-rChFUMwAe7E-unsplash.jpg',
+    image: 'static/media/images/greg-rivers-rChFUMwAe7E-unsplash.jpg',
   },
 ];
 

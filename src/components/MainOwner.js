@@ -64,7 +64,7 @@ function MainOwner(props) {
         <Avatar
           alt="Owner"
           className={classes.avatar}
-          src="/static/media/images/StockSnap_CLELOQWXUP.jpg"
+          src="static/media/images/StockSnap_CLELOQWXUP.jpg"
         />
         <Grid item xs={12}>
           <Divider className={classes.divider} />

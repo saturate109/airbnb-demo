@@ -36,7 +36,7 @@ function Location() {
       </Typography>
       {/* TODO: create googlemaps component */}
       <img
-        src="/static/media/images/googlemap.png"
+        src="static/media/images/googlemap.png"
         alt="placeholder"
         className={classes.gutterBottom}
         style={{ width: '100%' }}
