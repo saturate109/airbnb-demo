@@ -32,7 +32,7 @@ Or start the app in development mode on http://localhost:3000
 npm start
 ```
 
-![Screenshot](public/static/media/images/Lovely-4-bedroom-house-private-patio-garden-Houses-for-Rent-in-Greater-London-England-United-Kingdom.jpg 'Screenshot')
+![Screenshot](static/media/images/Lovely-4-bedroom-house-private-patio-garden-Houses-for-Rent-in-Greater-London-England-United-Kingdom.jpg 'Screenshot')
 
 ## Image credits
 
