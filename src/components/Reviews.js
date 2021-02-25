@@ -64,40 +64,40 @@ const chips = [
 const reviews = [
   {
     name: 'Steven',
-    avatar: 'static/media/images/XzA4MjM3ODkuanBn.jpg',
+    avatar: '/static/media/images/XzA4MjM3ODkuanBn.jpg',
     date: 'January 2020',
     text:
       "John's apartment is greatly located, well organised and equipped. Ideal to visit central London.",
   },
   {
     name: 'Hannah',
-    avatar: 'static/media/images/XzAzODEzODcuanBn.jpg',
+    avatar: '/static/media/images/XzAzODEzODcuanBn.jpg',
     date: 'November 2019',
     text:
       'The house is perfect, has everything you need, very homely. We will definitely be staying again.',
   },
   {
     name: 'Michelle',
-    avatar: 'static/media/images/XzA4MjQ3MjkuanBn.jpg',
+    avatar: '/static/media/images/XzA4MjQ3MjkuanBn.jpg',
     date: 'October 2019',
     text: 'Beautiful place! I would recommend it to everyone!!',
   },
   {
     name: 'Alex',
-    avatar: 'static/media/images/XzA1NzUxNTUuanBn.jpg',
+    avatar: '/static/media/images/XzA1NzUxNTUuanBn.jpg',
     date: 'November 2019',
     text: 'Secure, comfortable, convenient location.',
   },
   {
     name: 'Marie',
-    avatar: 'static/media/images/XzA3MDkzNzAuanBn.jpg',
+    avatar: '/static/media/images/XzA3MDkzNzAuanBn.jpg',
     date: 'May 2018',
     text:
       'We really enjoyed our stay, great for small children and lovely hosts.',
   },
   {
     name: 'Francis',
-    avatar: 'static/media/images/XzAyODIwOTQuanBn.jpg',
+    avatar: '/static/media/images/XzAyODIwOTQuanBn.jpg',
     date: 'September 2018',
     text:
       'Excellent Edwardian house with huge garden area for the kids to run around. Hosts are very friendly. Highly recommended.',
