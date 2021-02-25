@@ -68,29 +68,29 @@ function MainFeaturedPost() {
   const classes = useStyles();
   const mainImage = (
     <img
-      src="/static/media/images/cafe-3537801_1280.jpg"
+      src="static/media/images/cafe-3537801_1280.jpg"
       className={classes.mainImage}
       alt="House"
     />
   );
   const sub1 = (
     <img
-      src="/static/media/images/jason-briscoe-AQl-J19ocWE-unsplash.jpg"
+      src="static/media/images/jason-briscoe-AQl-J19ocWE-unsplash.jpg"
       alt="Bedroom 1"
     />
   );
   const sub2 = (
-    <img src="/static/media/images/bedroom-527645_1280.jpg" alt="Bedroom 2" />
+    <img src="static/media/images/bedroom-527645_1280.jpg" alt="Bedroom 2" />
   );
   const sub3 = (
     <img
-      src="/static/media/images/kara-eads-L7EwHkq1B2s-unsplash.jpg"
+      src="static/media/images/kara-eads-L7EwHkq1B2s-unsplash.jpg"
       alt="Living Room"
     />
   );
   const sub4 = (
     <img
-      src="/static/media/images/greg-rivers-rChFUMwAe7E-unsplash.jpg"
+      src="static/media/images/greg-rivers-rChFUMwAe7E-unsplash.jpg"
       alt="Outside"
     />
   );
