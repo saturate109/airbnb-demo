@@ -1,14 +1,19 @@
 import React, { Fragment, useState, useReducer, useEffect } from 'react';
+
+/* MUI */
 import { makeStyles } from '@material-ui/core/styles';
-import AppContext, { AppReducer, InitialState } from 'helpers/AppContext';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
+
+/* 3rd party */
 import { InView } from 'react-intersection-observer';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+
+/* Components */
 import Header from 'components/Header';
-import MainFeaturedPost from 'components/MainFeaturedPost';
+import MainPromo from 'components/MainPromo';
 import MainOwner from 'components/MainOwner';
 import MainTitle from 'components/MainTitle';
 import Sidebar from 'components/Sidebar';
@@ -31,6 +36,10 @@ import ExploreOptions from 'components/ExploreOptions';
 import SiteLinks from 'components/SiteLinks';
 import MainSlider from 'components/MainSlider';
 import { useMedia } from 'helpers/Hooks';
+import AppContext, { AppReducer, InitialState } from 'helpers/AppContext';
+import MainPromoImages from 'assets/json/MainPromoImages';
+
+/* SCSS */
 import 'assets/scss/pages/Homepage.scss';
 
 const useStyles = makeStyles((theme) => ({
@@ -110,7 +119,7 @@ export default function Homepage() {
             <MainTitle title="Lovely 4 bedroom house with private patio, garden" />
             {isMobileView && <Divider />}
             <InView onChange={(inView) => setShowFixedHeader(!inView)}>
-              {isMobileView || <MainFeaturedPost />}
+              {isMobileView || <MainPromo images={MainPromoImages} />}
             </InView>
 
             <Grid container className={classes.mainGrid} wrap="nowrap">

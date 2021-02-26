@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import clsx from 'clsx';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     display: 'grid',
     padding: '0',
@@ -15,13 +17,6 @@ const useStyles = makeStyles((theme) => ({
     height: 'auto !important',
     gridColumnEnd: 'span 2',
     gridRowEnd: 'span 2',
-  },
-  mainImage: {
-    position: 'absolute',
-    top: '0',
-    left: '0',
-    bottom: '0',
-    right: '0',
   },
   imageList: {
     display: 'grid',
@@ -61,40 +56,19 @@ const useStyles = makeStyles((theme) => ({
       height: '100%',
       objectFit: 'cover',
     },
+    '&:first-child>img': {
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      bottom: '0',
+      right: '0',
+    },
   },
 }));
 
-function MainFeaturedPost() {
+const MainPromo = ({ images }) => {
   const classes = useStyles();
-  const mainImage = (
-    <img
-      src="static/media/images/cafe-3537801_1280.jpg"
-      className={classes.mainImage}
-      alt="House"
-    />
-  );
-  const sub1 = (
-    <img
-      src="static/media/images/jason-briscoe-AQl-J19ocWE-unsplash.jpg"
-      alt="Bedroom 1"
-    />
-  );
-  const sub2 = (
-    <img src="static/media/images/bedroom-527645_1280.jpg" alt="Bedroom 2" />
-  );
-  const sub3 = (
-    <img
-      src="static/media/images/kara-eads-L7EwHkq1B2s-unsplash.jpg"
-      alt="Living Room"
-    />
-  );
-  const sub4 = (
-    <img
-      src="static/media/images/greg-rivers-rChFUMwAe7E-unsplash.jpg"
-      alt="Outside"
-    />
-  );
-
+  const Image = (props) => <img src={props.src} alt={props.alt} />;
   const ImageList = (props) => (
     <ul className={classes.imageList}>{props.children}</ul>
   );
@@ -105,17 +79,32 @@ function MainFeaturedPost() {
   return (
     <Fragment>
       <ImageList className={classes.imageList}>
-        <ImageListItem
-          className={classes.mainImageListItem}
-          children={mainImage}
-        />
-        <ImageListItem className={classes.imageListItem} children={sub1} />
-        <ImageListItem className={classes.imageListItem} children={sub2} />
-        <ImageListItem className={classes.imageListItem} children={sub3} />
-        <ImageListItem className={classes.imageListItem} children={sub4} />
+        {images.map((image, index) => (
+          <ImageListItem
+            className={clsx(
+              index === 0 && classes.mainImageListItem,
+              index > 0 && classes.imageListItem
+            )}
+            children={<Image {...image} />}
+            key={index}
+          />
+        ))}
       </ImageList>
     </Fragment>
   );
-}
+};
 
-export default MainFeaturedPost;
+MainPromo.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
+MainPromo.defaultProps = {
+  images: [],
+};
+
+export default MainPromo;
