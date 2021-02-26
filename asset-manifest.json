@@ -1,17 +1,17 @@
 {
   "files": {
     "static/css/0.7b2b8f53.chunk.css": "./static/css/0.7b2b8f53.chunk.css",
-    "static/js/0.e1f7dfae.chunk.js": "./static/js/0.e1f7dfae.chunk.js",
-    "static/js/1.ae6a69f0.chunk.js": "./static/js/1.ae6a69f0.chunk.js",
+    "static/js/0.c6ee38b3.chunk.js": "./static/js/0.c6ee38b3.chunk.js",
+    "static/js/1.40f86426.chunk.js": "./static/js/1.40f86426.chunk.js",
     "main.css": "./static/css/main.09c5d3cd.chunk.css",
-    "main.js": "./static/js/main.1621b728.chunk.js",
-    "runtime-main.js": "./static/js/runtime-main.89945a0f.js",
-    "static/js/4.e66291e9.chunk.js": "./static/js/4.e66291e9.chunk.js",
+    "main.js": "./static/js/main.95f5e6c7.chunk.js",
+    "runtime-main.js": "./static/js/runtime-main.e384caea.js",
+    "static/js/4.32bda629.chunk.js": "./static/js/4.32bda629.chunk.js",
     "index.html": "./index.html",
     "static/css/0.7b2b8f53.chunk.css.map": "./static/css/0.7b2b8f53.chunk.css.map",
     "static/css/main.09c5d3cd.chunk.css.map": "./static/css/main.09c5d3cd.chunk.css.map",
-    "static/js/1.ae6a69f0.chunk.js.LICENSE.txt": "./static/js/1.ae6a69f0.chunk.js.LICENSE.txt",
-    "static/js/4.e66291e9.chunk.js.LICENSE.txt": "./static/js/4.e66291e9.chunk.js.LICENSE.txt",
+    "static/js/1.40f86426.chunk.js.LICENSE.txt": "./static/js/1.40f86426.chunk.js.LICENSE.txt",
+    "static/js/4.32bda629.chunk.js.LICENSE.txt": "./static/js/4.32bda629.chunk.js.LICENSE.txt",
     "static/media/airbnb-logo.0b9689d7.svg": "./static/media/airbnb-logo.0b9689d7.svg",
     "static/media/favourite-icon.ec63992c.svg": "./static/media/favourite-icon.ec63992c.svg",
     "static/media/left-arrow-icon.4284d1c1.svg": "./static/media/left-arrow-icon.4284d1c1.svg",
@@ -19,9 +19,9 @@
     "static/media/share-icon.77435ad8.svg": "./static/media/share-icon.77435ad8.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.89945a0f.js",
-    "static/js/4.e66291e9.chunk.js",
+    "static/js/runtime-main.e384caea.js",
+    "static/js/4.32bda629.chunk.js",
     "static/css/main.09c5d3cd.chunk.css",
-    "static/js/main.1621b728.chunk.js"
+    "static/js/main.95f5e6c7.chunk.js"
   ]
 }
