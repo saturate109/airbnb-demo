@@ -117,7 +117,8 @@ function BulletPoint() {
 
 function ImgMediaCard(props) {
   const {
-    image,
+    src,
+    alt,
     desc = '',
     features = [],
     noOfReviews = null,
@@ -145,8 +146,8 @@ function ImgMediaCard(props) {
             `${classes.cardMedia} ${classes.imageOrientation}`,
             !roundedBorders && `${classes.radius0}`
           )}
-          image={image}
-          title="Image title"
+          image={src}
+          title={alt}
         />
         <CardContent classes={{ root: classes.cardContent }}>
           {noOfReviews > 0 && (

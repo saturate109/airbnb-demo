@@ -109,7 +109,7 @@ export default function Homepage() {
             </Fragment>
           </Container>
 
-          {isMobileView && <MainSlider />}
+          {isMobileView && <MainSlider images={MainPromoImages} />}
 
           <Container
             maxWidth="lg"

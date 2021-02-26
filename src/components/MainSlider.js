@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
+import PropTypes from 'prop-types';
 import Layout from 'assets/jss/Layout';
 import Skeleton from '@material-ui/lab/Skeleton';
 
@@ -10,24 +11,6 @@ const useStyles = makeStyles((theme) => ({
   ...Layout,
 }));
 
-const cards = [
-  {
-    image: 'static/media/images/cafe-3537801_1280.jpg',
-  },
-  {
-    image: 'static/media/images/jason-briscoe-AQl-J19ocWE-unsplash.jpg',
-  },
-  {
-    image: 'static/media/images/bedroom-527645_1280.jpg',
-  },
-  {
-    image: 'static/media/images/kara-eads-L7EwHkq1B2s-unsplash.jpg',
-  },
-  {
-    image: 'static/media/images/greg-rivers-rChFUMwAe7E-unsplash.jpg',
-  },
-];
-
 const Fallback = () => (
   <Skeleton
     variant="rect"
@@ -36,14 +19,14 @@ const Fallback = () => (
   ></Skeleton>
 );
 
-function MainSlider() {
+function MainSlider({ images }) {
   const classes = useStyles();
 
   return (
     <Box className={classes.box}>
       <Suspense fallback={<Fallback />}>
         <Carousel
-          cards={cards}
+          cards={images}
           floatingNav={true}
           roundedBorders={false}
           showFavourite={false}
@@ -61,5 +44,18 @@ function MainSlider() {
     </Box>
   );
 }
+
+MainSlider.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
+MainSlider.defaultProps = {
+  images: [],
+};
 
 export default MainSlider;
