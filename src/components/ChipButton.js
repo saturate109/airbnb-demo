@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,8 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 function handleClick() {}
 
-function ChipButton(props) {
-  const { title, score } = props;
+const ChipButton = ({ title, score }) => {
   const classes = useStyles();
   const label = (
     <span>
@@ -38,6 +38,16 @@ function ChipButton(props) {
       classes={{ root: classes.root, label: classes.label }}
     ></Chip>
   );
-}
+};
+
+ChipButton.propTypes = {
+  title: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+};
+
+ChipButton.defaultProps = {
+  title: '',
+  score: 0,
+};
 
 export default ChipButton;

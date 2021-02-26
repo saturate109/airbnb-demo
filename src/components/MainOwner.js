@@ -31,10 +31,9 @@ const useStyles = makeStyles((theme) => ({
   subtitle1: { fontWeight: 400 },
 }));
 
-function MainOwner(props) {
+const MainOwner = ({ title, description }) => {
   const classes = useStyles();
   const { state } = useContext(AppContext);
-  const { title, description } = props;
 
   return (
     <Fragment>
@@ -72,11 +71,16 @@ function MainOwner(props) {
       </Grid>
     </Fragment>
   );
-}
+};
 
 MainOwner.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.array.isRequired,
+};
+
+MainOwner.defaultProps = {
+  title: '',
+  description: '',
 };
 
 export default MainOwner;
