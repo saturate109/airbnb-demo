@@ -1,6 +1,6 @@
-# AirBnb page
+# Airbnb page
 
-A responsive AirBnB page built with React and and Material UI. This was created to demonstrate how easy it is to set up and build highly customisable responsive frontend interfaces with Material UI.
+A responsive Airbnb page built with React and and Material UI. This was created to demonstrate how easy it is to set up and build highly customisable responsive frontend interfaces with Material UI.
 
 ## Features
 
