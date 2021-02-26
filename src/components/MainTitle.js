@@ -21,10 +21,9 @@ const useStyles = makeStyles(() => ({
   ratings: { marginBottom: '1.25rem' },
 }));
 
-function MainTitle(props) {
+const MainTitle = ({ title }) => {
   const classes = useStyles();
   const { state } = useContext(AppContext);
-  const { title } = props;
 
   return (
     <Grid item xs={12}>
@@ -54,10 +53,14 @@ function MainTitle(props) {
       </Typography>
     </Grid>
   );
-}
+};
 
 MainTitle.propTypes = {
   title: PropTypes.string.isRequired,
+};
+
+MainTitle.defaultProps = {
+  title: '',
 };
 
 export default MainTitle;
