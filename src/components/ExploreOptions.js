@@ -13,7 +13,7 @@ const boxStyles = {
   },
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   ...Layout,
   ...boxStyles,
   gutterBottom: { marginBottom: '24px' },
