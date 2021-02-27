@@ -105,7 +105,7 @@ const listItems = [
   'Response time: within a few hours',
 ];
 
-function Host(props) {
+function Host() {
   const classes = useStyles();
   const { state } = useContext(AppContext);
 
