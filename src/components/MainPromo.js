@@ -85,9 +85,10 @@ const MainPromo = ({ images }) => {
               index === 0 && classes.mainImageListItem,
               index > 0 && classes.imageListItem
             )}
-            children={<Image {...image} />}
             key={index}
-          />
+          >
+            <Image {...image} />
+          </ImageListItem>
         ))}
       </ImageList>
     </Fragment>
