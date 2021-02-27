@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   review: {
@@ -28,9 +29,7 @@ const useStyles = makeStyles((theme) => ({
   score: { fontSize: '0.8rem', alignSelf: 'center' },
 }));
 
-function Score(props) {
-  const { title, score } = props;
-
+const Score = ({ title, score }) => {
   const classes = useStyles();
   return (
     <div className={classes.review}>
@@ -66,6 +65,16 @@ function Score(props) {
       </Grid>
     </div>
   );
-}
+};
+
+Score.propTypes = {
+  title: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+};
+
+Score.defaultProps = {
+  title: '',
+  score: 0,
+};
 
 export default Score;
