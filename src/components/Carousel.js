@@ -198,10 +198,12 @@ const Carousel = (props) => {
   const [perView, setPerView] = useState(0);
   const length = cards.length;
   const ref = useRef();
-  const config = mergeConfig(sliderConfiguration, configOverrides);
 
   useEffect(() => {
-    let glide = new Glide(ref.current, config);
+    let glide = new Glide(
+      ref.current,
+      mergeConfig(sliderConfiguration, configOverrides)
+    );
 
     glide.on('run', function () {
       setIndex(glide.index);
@@ -228,7 +230,7 @@ const Carousel = (props) => {
     return () => {
       glide.destroy();
     };
-  }, []); //TODO: Fix missing dependancy
+  }, [configOverrides]);
 
   return (
     <>
