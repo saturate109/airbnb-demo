@@ -128,14 +128,12 @@ function AddDates() {
   return (
     <>
       <Container className={classes.cardGrid} disableGutters={true}>
-        {/* End hero unit */}
         <Grid container>
           <Grid item xs={12}>
             <Card className={classes.card} variant="outlined">
               <CardHeader
                 action={<Ratings />}
                 title="Add dates for prices"
-                // component={Typography}
                 titleTypographyProps={{ variant: 'h3', component: 'span' }}
                 classes={{
                   root: classes.cardHeader,
