@@ -37,7 +37,8 @@ import SiteLinks from 'components/SiteLinks';
 import MainSlider from 'components/MainSlider';
 import { useMedia } from 'helpers/Hooks';
 import AppContext, { AppReducer, InitialState } from 'helpers/AppContext';
-import MainPromoImages from 'assets/json/MainPromoImages';
+import Api from 'helpers/Axios';
+import { API_MAINPROMOIMAGES_URL } from 'helpers/Constants';
 
 /* SCSS */
 import 'assets/scss/pages/Homepage.scss';
@@ -76,11 +77,27 @@ const useStyles = makeStyles((theme) => ({
 export default function Homepage() {
   const classes = useStyles();
   const [showFixedHeader, setShowFixedHeader] = useState(false);
+  const [mainPromo, setMainPromo] = useState({
+    images: Array(5).fill(),
+    error: null,
+  });
   const isMobileView = useMedia(['(max-width: 744px)'], [true], false);
   const [state, dispatch] = useReducer(AppReducer, {
     ...InitialState,
     isMobileView,
   });
+
+  useEffect(() => {
+    async function getMainPromoImages() {
+      try {
+        const resp = await Api.get(API_MAINPROMOIMAGES_URL);
+        setMainPromo((mainPromo) => ({ ...mainPromo, images: resp.data }));
+      } catch (error) {
+        setMainPromo((mainPromo) => ({ ...mainPromo, error }));
+      }
+    }
+    getMainPromoImages();
+  }, []);
 
   useEffect(() => {
     dispatch({ type: 'SET_MOBILEVIEW', value: isMobileView });
@@ -109,7 +126,7 @@ export default function Homepage() {
             </Fragment>
           </Container>
 
-          {isMobileView && <MainSlider images={MainPromoImages} />}
+          {isMobileView && <MainSlider {...mainPromo} />}
 
           <Container
             maxWidth="lg"
@@ -119,7 +136,7 @@ export default function Homepage() {
             <MainTitle title="Lovely 4 bedroom house with private patio, garden" />
             {isMobileView && <Divider />}
             <InView onChange={(inView) => setShowFixedHeader(!inView)}>
-              {isMobileView || <MainPromo images={MainPromoImages} />}
+              {isMobileView || <MainPromo {...mainPromo} />}
             </InView>
 
             <Grid container className={classes.mainGrid} wrap="nowrap">

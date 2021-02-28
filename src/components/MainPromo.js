@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Skeleton from '@material-ui/lab/Skeleton';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
@@ -64,11 +65,24 @@ const useStyles = makeStyles(() => ({
       right: '0',
     },
   },
+  noPad: {
+    padding: 0,
+  },
 }));
+
+const Fallback = () => (
+  <Skeleton
+    variant="rect"
+    animation="wave"
+    width="100%"
+    height="100%"
+  ></Skeleton>
+);
 
 const MainPromo = ({ images }) => {
   const classes = useStyles();
-  const Image = (props) => <img src={props.src} alt={props.alt} />;
+  const Image = (props) =>
+    props.src ? <img src={props.src} alt={props.alt} /> : Fallback();
   const ImageList = (props) => (
     <ul className={classes.imageList}>{props.children}</ul>
   );
@@ -83,7 +97,8 @@ const MainPromo = ({ images }) => {
           <ImageListItem
             className={clsx(
               index === 0 && classes.mainImageListItem,
-              index > 0 && classes.imageListItem
+              index > 0 && classes.imageListItem,
+              classes.noPad
             )}
             key={index}
           >
@@ -105,7 +120,7 @@ MainPromo.propTypes = {
 };
 
 MainPromo.defaultProps = {
-  images: [],
+  images: Array(5).fill(),
 };
 
 export default MainPromo;

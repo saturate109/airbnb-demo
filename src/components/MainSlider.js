@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
 const Fallback = () => (
   <Skeleton
     variant="rect"
+    animation="wave"
     width="100%"
     style={{ paddingTop: '66.6667%', marginBottom: '16px' }}
   ></Skeleton>

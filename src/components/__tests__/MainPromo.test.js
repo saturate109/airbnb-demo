@@ -1,10 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import MainPromo from 'components/MainPromo';
-import MainPromoImages from 'assets/json/MainPromoImages';
 
 beforeEach(() => {
-  render(<MainPromo images={MainPromoImages} />);
+  const MainPromoImages = {
+    images: Array(5).fill({ src: 'image-url', alt: 'alt-text' }),
+  };
+  render(<MainPromo {...MainPromoImages} />);
 });
 
 it('Five images found on component', () => {
