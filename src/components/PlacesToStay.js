@@ -115,12 +115,10 @@ const config = {
       peek: 30,
       touchRatio: 0,
       animationDuration: 200,
-      swipeThreshold: 40,
     },
     1128: {
       perView: 3,
       peek: 0,
-      swipeThreshold: false,
     },
   },
 };

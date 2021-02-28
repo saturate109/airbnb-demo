@@ -86,7 +86,7 @@ const sliderConfiguration = {
   animationDuration: 500,
   gap: 20,
   dragDistance: false,
-  swipeThreshold: false,
+  swipeThreshold: 40,
 };
 
 function Counter(props) {
@@ -141,14 +141,16 @@ function ImgMediaCard(props) {
             classes={{ root: classes.FavoriteTwoToneIcon }}
           />
         )}
-        <CardMedia
-          className={clsx(
-            `${classes.cardMedia} ${classes.imageOrientation}`,
-            !roundedBorders && `${classes.radius0}`
-          )}
-          image={src}
-          title={alt}
-        />
+        {src && (
+          <CardMedia
+            className={clsx(
+              `${classes.cardMedia} ${classes.imageOrientation}`,
+              !roundedBorders && `${classes.radius0}`
+            )}
+            image={src}
+            title={alt}
+          />
+        )}
         <CardContent classes={{ root: classes.cardContent }}>
           {noOfReviews > 0 && (
             <Typography gutterBottom>

@@ -76,10 +76,11 @@ const Fallback = () => (
     animation="wave"
     width="100%"
     height="100%"
+    aria-label="Image loading"
   ></Skeleton>
 );
 
-const MainPromo = ({ images }) => {
+const Gallery = ({ images }) => {
   const classes = useStyles();
   const Image = (props) =>
     props.src ? <img src={props.src} alt={props.alt} /> : Fallback();
@@ -110,7 +111,7 @@ const MainPromo = ({ images }) => {
   );
 };
 
-MainPromo.propTypes = {
+Gallery.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.string.isRequired,
@@ -119,8 +120,8 @@ MainPromo.propTypes = {
   ).isRequired,
 };
 
-MainPromo.defaultProps = {
+Gallery.defaultProps = {
   images: Array(5).fill(),
 };
 
-export default MainPromo;
+export default Gallery;

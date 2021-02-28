@@ -13,7 +13,8 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 /* Components */
 import Header from 'components/Header';
-import MainPromo from 'components/MainPromo';
+import MainGallery from 'containers/MainGallery';
+import MainSlider from 'containers/MainSlider';
 import MainOwner from 'components/MainOwner';
 import MainTitle from 'components/MainTitle';
 import Sidebar from 'components/Sidebar';
@@ -34,11 +35,8 @@ import PlacesToStay from 'components/PlacesToStay';
 import ThingsToDoNearby from 'components/ThingsToDoNearby';
 import ExploreOptions from 'components/ExploreOptions';
 import SiteLinks from 'components/SiteLinks';
-import MainSlider from 'components/MainSlider';
 import { useMedia } from 'helpers/Hooks';
 import AppContext, { AppReducer, InitialState } from 'helpers/AppContext';
-import Api from 'helpers/Axios';
-import { API_MAINPROMOIMAGES_URL } from 'helpers/Constants';
 
 /* SCSS */
 import 'assets/scss/pages/Homepage.scss';
@@ -77,27 +75,12 @@ const useStyles = makeStyles((theme) => ({
 export default function Homepage() {
   const classes = useStyles();
   const [showFixedHeader, setShowFixedHeader] = useState(false);
-  const [mainPromo, setMainPromo] = useState({
-    images: Array(5).fill(),
-    error: null,
-  });
+
   const isMobileView = useMedia(['(max-width: 744px)'], [true], false);
   const [state, dispatch] = useReducer(AppReducer, {
     ...InitialState,
     isMobileView,
   });
-
-  useEffect(() => {
-    async function getMainPromoImages() {
-      try {
-        const resp = await Api.get(API_MAINPROMOIMAGES_URL);
-        setMainPromo((mainPromo) => ({ ...mainPromo, images: resp.data }));
-      } catch (error) {
-        setMainPromo((mainPromo) => ({ ...mainPromo, error }));
-      }
-    }
-    getMainPromoImages();
-  }, []);
 
   useEffect(() => {
     dispatch({ type: 'SET_MOBILEVIEW', value: isMobileView });
@@ -126,7 +109,7 @@ export default function Homepage() {
             </Fragment>
           </Container>
 
-          {isMobileView && <MainSlider {...mainPromo} />}
+          {isMobileView && <MainSlider />}
 
           <Container
             maxWidth="lg"
@@ -136,7 +119,7 @@ export default function Homepage() {
             <MainTitle title="Lovely 4 bedroom house with private patio, garden" />
             {isMobileView && <Divider />}
             <InView onChange={(inView) => setShowFixedHeader(!inView)}>
-              {isMobileView || <MainPromo {...mainPromo} />}
+              {isMobileView || <MainGallery />}
             </InView>
 
             <Grid container className={classes.mainGrid} wrap="nowrap">

@@ -133,7 +133,6 @@ const config = {
       peek: 30,
       touchRatio: 0,
       animationDuration: 200,
-      swipeThreshold: 40,
     },
   },
 };

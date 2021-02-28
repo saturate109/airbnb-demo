@@ -7,7 +7,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 
 const Carousel = lazy(() => import('components/Carousel'));
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   ...Layout,
 }));
 
@@ -38,7 +38,6 @@ function MainSlider({ images }) {
             touchRatio: 0,
             animationDuration: 200,
             breakpoints: null,
-            swipeThreshold: 40,
           }}
         />
       </Suspense>
