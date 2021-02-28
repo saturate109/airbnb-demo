@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ReportListing(props) {
+function ReportListing() {
   const classes = useStyles();
 
   return (
