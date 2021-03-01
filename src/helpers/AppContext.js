@@ -12,7 +12,7 @@ export const AppReducer = (state, action) => {
 };
 
 export const InitialState = {
-  showCheckAvailability: false,
+  showCheckAvailability: true,
   isMobileView: false,
 };
 

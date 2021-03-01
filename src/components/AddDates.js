@@ -123,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
 
 function AddDates() {
   const classes = useStyles();
-  const { dispatch } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
 
   return (
     <>
@@ -213,12 +213,14 @@ function AddDates() {
                     }}
                     endIcon={
                       <InView
-                        onChange={(inView) =>
-                          dispatch({
-                            type: 'SET_CHECK_AVAILABILITY_STATUS',
-                            value: !inView,
-                          })
-                        }
+                        onChange={(inView) => {
+                          if (state.showCheckAvailability === inView) {
+                            dispatch({
+                              type: 'SET_CHECK_AVAILABILITY_STATUS',
+                              value: !inView,
+                            });
+                          }
+                        }}
                       >
                         <ExpandMoreIcon
                           className={classes.expandMoreIcon}
