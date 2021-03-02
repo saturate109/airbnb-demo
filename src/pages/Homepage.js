@@ -83,8 +83,10 @@ export default function Homepage() {
   });
 
   useEffect(() => {
-    dispatch({ type: 'SET_MOBILEVIEW', value: isMobileView });
-  }, [isMobileView]);
+    if (state.isMobileView !== isMobileView) {
+      dispatch({ type: 'SET_MOBILEVIEW', value: isMobileView });
+    }
+  }, [state.isMobileView, isMobileView]);
 
   return (
     <Fragment>

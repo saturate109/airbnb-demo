@@ -13,7 +13,7 @@ export const AppReducer = (state, action) => {
 
 export const InitialState = {
   showCheckAvailability: true,
-  isMobileView: false,
+  isMobileView: window.matchMedia('(max-width: 744px)').matches,
 };
 
 const AppContext = createContext(null);
