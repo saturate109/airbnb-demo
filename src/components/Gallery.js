@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Skeleton from '@material-ui/lab/Skeleton';
 import PropTypes from 'prop-types';
@@ -68,6 +68,8 @@ const useStyles = makeStyles(() => ({
   noPad: {
     padding: 0,
   },
+  hideImage: { opacity: 0, position: 'absolute' },
+  showImage: { opacity: 1, transition: 'opacity 1s ease-in' },
 }));
 
 const Fallback = () => (
@@ -82,8 +84,25 @@ const Fallback = () => (
 
 const Gallery = ({ images }) => {
   const classes = useStyles();
-  const Image = (props) =>
-    props.src ? <img src={props.src} alt={props.alt} /> : Fallback();
+  const Image = (props) => {
+    const [imageLoaded, setImageLoaded] = useState(false);
+    return (
+      <>
+        {props.src && (
+          <img
+            src={props.src}
+            alt={props.alt}
+            onLoad={() => setImageLoaded(true)}
+            className={clsx(
+              !imageLoaded && [classes.hideImage],
+              imageLoaded && classes.showImage
+            )}
+          />
+        )}
+        {!imageLoaded && <Fallback />}
+      </>
+    );
+  };
   const ImageList = (props) => (
     <ul className={classes.imageList}>{props.children}</ul>
   );

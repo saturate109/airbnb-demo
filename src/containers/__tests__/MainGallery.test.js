@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  render,
-  screen,
-  waitForElementToBeRemoved,
-} from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import MainGallery from 'containers/MainGallery';
 import Api from 'helpers/Axios';
 
@@ -21,9 +17,7 @@ it('Five images found on component', async () => {
   const skeletons = screen.getAllByLabelText(skeletonLabel);
   expect(skeletons.length).toEqual(5);
 
-  await waitForElementToBeRemoved(() =>
-    screen.getAllByLabelText(skeletonLabel)
-  );
+  await waitFor(() => screen.getAllByRole('img'));
 
   // Then check for correct number of images
   const images = screen.getAllByRole('img');
