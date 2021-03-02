@@ -29,4 +29,4 @@ const MainGallery = () => {
   return <Gallery {...galleryImages} />;
 };
 
-export default MainGallery;
+export default React.memo(MainGallery);
