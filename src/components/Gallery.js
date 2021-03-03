@@ -84,14 +84,14 @@ const Fallback = () => (
 
 const Gallery = ({ images }) => {
   const classes = useStyles();
-  const Image = (props) => {
+  const Image = ({ src, alt }) => {
     const [imageLoaded, setImageLoaded] = useState(false);
     return (
       <>
-        {props.src && (
+        {src && (
           <img
-            src={props.src}
-            alt={props.alt}
+            src={src}
+            alt={alt}
             onLoad={() => setImageLoaded(true)}
             className={clsx(
               !imageLoaded && [classes.hideImage],
@@ -103,11 +103,11 @@ const Gallery = ({ images }) => {
       </>
     );
   };
-  const ImageList = (props) => (
-    <ul className={classes.imageList}>{props.children}</ul>
+  const ImageList = ({ children, className }) => (
+    <ul className={className}>{children}</ul>
   );
-  const ImageListItem = (props) => (
-    <li className={props.className}>{props.children}</li>
+  const ImageListItem = ({ children, className }) => (
+    <li className={className}>{children}</li>
   );
 
   return (
