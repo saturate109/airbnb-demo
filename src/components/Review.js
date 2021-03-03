@@ -6,6 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import ImageIcon from '@material-ui/icons/Image';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -31,15 +32,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Score(props) {
-  const { name, date, avatar, text } = props;
+function Score({ name, date, avatar, text }) {
   const classes = useStyles();
   return (
     <ListItem disableGutters className={classes.listItem}>
       <ListItemAvatar>
-        <Avatar alt={name} src={avatar} classes={{ root: classes.avatar }}>
-          <ImageIcon />
-        </Avatar>
+        {avatar && (
+          <Avatar alt={name} src={avatar} classes={{ root: classes.avatar }}>
+            <ImageIcon />
+          </Avatar>
+        )}
       </ListItemAvatar>
       <ListItemText
         primary={name}
@@ -52,5 +54,19 @@ function Score(props) {
     </ListItem>
   );
 }
+
+Score.propTypes = {
+  name: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
+
+Score.defaultProps = {
+  name: '',
+  date: '',
+  avatar: undefined,
+  text: '',
+};
 
 export default Score;
