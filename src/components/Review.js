@@ -8,7 +8,7 @@ import Avatar from '@material-ui/core/Avatar';
 import ImageIcon from '@material-ui/icons/Image';
 import PropTypes from 'prop-types';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   avatar: {
     width: '56px',
     height: '56px',
