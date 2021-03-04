@@ -30,9 +30,6 @@ const useStyles = makeStyles({
   cardContent: {
     padding: '10px 0px 10px 0px',
   },
-  imageOrientation: (styles) => ({
-    paddingTop: styles.paddingTop,
-  }),
   cardMedia: {
     borderWidth: '1px',
     borderColor: '#a5a5a5',
@@ -73,6 +70,12 @@ const useStyles = makeStyles({
   radius0: {
     borderRadius: 0,
   },
+  portrait: {
+    paddingTop: '133%',
+  },
+  landscape: {
+    paddingTop: '66.6667%',
+  },
 });
 
 const sliderConfiguration = {
@@ -89,7 +92,7 @@ const sliderConfiguration = {
   swipeThreshold: 40,
 };
 
-function Counter(props) {
+const Counter = (props) => {
   const { index, perView, length } = props;
   const sets = length / perView;
   const content =
@@ -99,34 +102,27 @@ function Counter(props) {
   return (
     <span style={{ alignSelf: 'center', letterSpacing: '3px' }}>{content}</span>
   );
-}
+};
 
-function getStylesFromProps({ imageOrientation }) {
-  return imageOrientation === 'portrait'
-    ? { paddingTop: '133%' }
-    : { paddingTop: '66.6667%' };
-}
-
-function mergeConfig(config, overrides) {
+const mergeConfig = (config, overrides) => {
   return { ...config, ...overrides };
-}
+};
 
-function BulletPoint() {
+const BulletPoint = () => {
   return <span aria-hidden="true">·</span>;
-}
+};
 
-function ImgMediaCard(props) {
-  const {
-    src,
-    alt,
-    desc = '',
-    features = [],
-    noOfReviews = null,
-    roundedBorders = true,
-    showFavourite = true,
-  } = props;
-  const styles = getStylesFromProps(props);
-  const classes = useStyles(styles);
+const ImgMediaCard = ({
+  src,
+  alt,
+  desc = '',
+  features = [],
+  noOfReviews = null,
+  roundedBorders = true,
+  showFavourite = true,
+  imageOrientation = 'landscape',
+}) => {
+  const classes = useStyles();
 
   return (
     <Card className={classes.root}>
@@ -144,8 +140,9 @@ function ImgMediaCard(props) {
         {src && (
           <CardMedia
             className={clsx(
-              `${classes.cardMedia} ${classes.imageOrientation}`,
-              !roundedBorders && `${classes.radius0}`
+              classes.cardMedia,
+              classes[imageOrientation],
+              !roundedBorders && classes.radius0
             )}
             image={src}
             title={alt}
@@ -182,7 +179,7 @@ function ImgMediaCard(props) {
       </CardActionArea>
     </Card>
   );
-}
+};
 
 const Carousel = (props) => {
   const {
