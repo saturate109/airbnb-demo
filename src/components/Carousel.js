@@ -9,6 +9,7 @@ import Glide from '@glidejs/glide';
 import { SvgIcon } from '@material-ui/core';
 import { Star } from '@material-ui/icons';
 import FavoriteTwoToneIcon from '@material-ui/icons/FavoriteTwoTone';
+import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import ArrowButton from 'components/elements/ArrowButton';
 
@@ -113,14 +114,14 @@ const BulletPoint = () => {
 };
 
 const ImgMediaCard = ({
-  src,
-  alt,
+  src = null,
+  alt = '',
   desc = '',
   features = [],
-  noOfReviews = null,
-  roundedBorders = true,
-  showFavourite = true,
-  imageOrientation = 'landscape',
+  noOfReviews = 0,
+  roundedBorders,
+  showFavourite,
+  imageOrientation,
 }) => {
   const classes = useStyles();
 
@@ -181,18 +182,17 @@ const ImgMediaCard = ({
   );
 };
 
-const Carousel = (props) => {
-  const {
-    title,
-    cards,
-    imageOrientation = 'landscape',
-    floatingNav = false,
-    roundedBorders,
-    showFavourite,
-    showNav = true,
-    showCounter = true,
-    configOverrides,
-  } = props;
+const Carousel = ({
+  title,
+  cards,
+  imageOrientation,
+  floatingNav,
+  roundedBorders,
+  showFavourite,
+  showNav,
+  showCounter,
+  configOverrides,
+}) => {
   const [index, setIndex] = useState(0);
   const [perView, setPerView] = useState(0);
   const length = cards.length;
@@ -292,6 +292,38 @@ const Carousel = (props) => {
       </div>
     </>
   );
+};
+
+Carousel.propTypes = {
+  title: PropTypes.string,
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      desc: PropTypes.string,
+      features: PropTypes.arrayOf(PropTypes.string),
+      noOfReviews: PropTypes.number,
+      src: PropTypes.string,
+      alt: PropTypes.string,
+    })
+  ),
+  configOverrides: PropTypes.object,
+  floatingNav: PropTypes.bool,
+  imageOrientation: PropTypes.string,
+  roundedBorders: PropTypes.bool,
+  showCounter: PropTypes.bool,
+  showFavourite: PropTypes.bool,
+  showNav: PropTypes.bool,
+};
+
+Carousel.defaultProps = {
+  title: null,
+  cards: Array(5).fill(),
+  configOverrides: {},
+  floatingNav: false,
+  imageOrientation: 'landscape',
+  roundedBorders: true,
+  showCounter: true,
+  showFavourite: true,
+  showNav: true,
 };
 
 export default Carousel;
